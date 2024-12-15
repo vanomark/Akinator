@@ -1,0 +1,25 @@
+digraph G{
+	rankdir=TB;
+	edge[color="#1e2460"];
+	subgraph cluster1 {
+		style = filled;
+		color = "#ebd1d7";
+		_106309030511008[rang = 0, shape=record,label="{ Dick? }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "No"]		_106309030511008->_106309030511360;
+		_106309030511360[rang = 1, shape=record,label="{ ALLAHUAKBAR? }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "No"]		_106309030511360->_106309030511712;
+		_106309030511712[rang = 2, shape=record,label="{ ABIBA }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "No"]		_106309030511712->_106309030512064;
+		_106309030512064[rang = 3, shape=record,label="{ mama }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "Yes"]		_106309030511712->_106309030512416;
+		_106309030512416[rang = 3, shape=record,label="{ papa }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "Yes"]		_106309030511360->_106309030512768;
+		_106309030512768[rang = 2, shape=record,label="{ ABOBA }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "Yes"]		_106309030511008->_106309030513120;
+		_106309030513120[rang = 1, shape=record,label="{ Pisun? }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "No"]		_106309030513120->_106309030513472;
+		_106309030513472[rang = 2, shape=record,label="{ BOBUS }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+		edge[label = "Yes"]		_106309030513120->_106309030513824;
+		_106309030513824[rang = 2, shape=record,label="{ BOBIC }"style=filled,color="#050505", fontcolor="#0a2033", fillcolor="#6c4675" ];
+	}
+}
