@@ -1,0 +1,22 @@
+{
+    "A person?"
+        {
+            "A cat?"
+                {
+                    "Bobic"
+                }
+                {
+                    "Poltorashka"
+                }
+            } 
+
+        {
+            "Male?"
+                {
+                    "Olga Vladimirovna"
+                }
+                {
+                    "Iliya Dedinskiy"
+                }
+        }
+}

@@ -1,0 +1,27 @@
+digraph G{
+	rankdir=TB;
+	edge[color="#1e2460"];
+	subgraph cluster1 {
+		style = filled;
+		color = "#78dbe2";
+		_88716844466592[rang = 0, shape=record,label="{ A person }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#9f8170" ];
+		edge[label = "No", color = "#b32851"];
+		_88716844466592->_88716844466944;
+		_88716844466944[rang = 1, shape=record,label="{ A cat }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#9f8170" ];
+		edge[label = "No", color = "#b32851"];
+		_88716844466944->_88716844467296;
+		_88716844467296[rang = 2, shape=record,label="{ Bobic }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#755d9a" ];
+		edge[label = "Yes", color = "#03c03c"];
+		_88716844466944->_88716844467648;
+		_88716844467648[rang = 2, shape=record,label="{ Poltorashka }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#755d9a" ];
+		edge[label = "Yes", color = "#03c03c"];
+		_88716844466592->_88716844468000;
+		_88716844468000[rang = 1, shape=record,label="{ Male }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#9f8170" ];
+		edge[label = "No", color = "#b32851"];
+		_88716844468000->_88716844468352;
+		_88716844468352[rang = 2, shape=record,label="{ Olga Vladimirovna }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#755d9a" ];
+		edge[label = "Yes", color = "#03c03c"];
+		_88716844468000->_88716844468704;
+		_88716844468704[rang = 2, shape=record,label="{ Iliya Dedinskiy }"style=filled,color="#050505", fontcolor="#0a2033"fillcolor="#755d9a" ];
+	}
+}
