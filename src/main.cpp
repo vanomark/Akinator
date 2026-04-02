@@ -17,15 +17,16 @@
 
 int main(const int argc, const char* argv[])
 {   
+    FILE* fp = NULL;
+    if (argc == 1) {
+        fp = fopen(DEFAULT_DATA_FILE, "r");
+    } else {
+        fp = fopen(argv[1], "r");
+    }
     Node_t* tree = NULL;
-    FILE* fp = fopen("data.txt", "r");
     fscanfTree(fp, &tree);
-
-    play_akinator(tree);
-
-    // fprintfTree(stderr, tree, 0);
-
-    ON_DEBUG(TreeDump(tree, "Graf.dot", "Graf.svg");)
+    
+    play_akinator(fp, tree);
 
     DELETE_TREE(tree); 
     fclose(fp);

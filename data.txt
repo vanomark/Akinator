@@ -3,7 +3,13 @@
         {
             "A cat?"
                 {
-                    "Bobic"
+                    "A dog?"
+                        {
+                            "Bobic"
+                        }   
+                        {
+                            "Sharic"
+                        }     
                 }
                 {
                     "Poltorashka"

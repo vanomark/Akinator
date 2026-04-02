@@ -66,7 +66,7 @@ void fscanfTree(FILE* inputfile, Node_t** root)
 
     char* matrix = (char *) calloc(2 * MAX_DEPTH, sizeof(char));
     assert(matrix);
-    // ??wknefew
+    
     char  symbol = 0;
 
     size_t lt_bracket_num = 0;

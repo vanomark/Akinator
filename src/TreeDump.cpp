@@ -49,6 +49,11 @@ void PrintNodes(FILE* Graf, Node_t* tree, size_t rang)
         return;
     }
 
+    if (rang >= MAX_DEPTH) {
+        fprintf(stderr, "ERROR: wrong depth");
+        assert(0);
+    }
+
     fprintf(Graf, "\t\t_%lu", (size_t) tree->question);
     fprintf(Graf, "[rang = %lu, shape=record,label=\"{ %s }\"", rang, tree->question); 
     fprintf(Graf, "style=%s," "color=\"%s\", fontcolor=\"%s\"", defaultslt, nodeclr, fontclr);
