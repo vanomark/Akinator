@@ -1,7 +1,19 @@
 #include "Akinator.h"
+#include "Akinator_SFML.hpp"
 #include "ColorPrintFile.h"
 
-void play_akinator(FILE* fp, Node_t* root)
+void play_akinator(FILE* fp, Node_t* root, game_mode mode)
+{
+    if (mode == MODE_CONSOLE) {
+        play_akinator_console(fp, root);
+    } else if (mode == MODE_GRAPHICS) {
+        play_akinator_sfml(fp, root);
+    } else {
+        printf("ERROR: wrong gamemode");
+    }
+}
+
+void play_akinator_console(FILE* fp, Node_t* root)
 {
     printf("\n" YELLOW("Choose one of the options:") "\n");
     printf(YELLOW("<p> (play)\n"
@@ -23,7 +35,7 @@ void play_akinator(FILE* fp, Node_t* root)
             if (answer == 'y') {
 
                 clean_buffer();
-                play_akinator(fp, root);
+                play_akinator_console(fp, root);
 
             } else if (answer == 'n') {
 
@@ -33,7 +45,7 @@ void play_akinator(FILE* fp, Node_t* root)
 
             } else {
 
-                printf(YELLOW("Eblan takoy option netu.\nZavershau.\n"));
+                printf(YELLOW("There is no such option.\nZavershau.\n"));
                 clean_buffer();
                 return;
             }
@@ -43,15 +55,15 @@ void play_akinator(FILE* fp, Node_t* root)
         fprintfTree(fp, root, 0);
         printf(YELLOW("Done!\n"));
         clean_buffer();
-        play_akinator(fp, root);
+        play_akinator_console(fp, root);
         return;
 
     } else if (option == 'd') {
 
-        TreeDump(root, DEFAULT_DOT_FILE, DEFAULT_SVG_FILE);
+        TreeDump(root, DEFAULT_DOT_FILE);
         printf(YELLOW("Graf is done!\n"));
         clean_buffer();
-        play_akinator(fp, root);
+        play_akinator_console(fp, root);
         return;
 
     } else if (option == 'q') {
@@ -64,14 +76,14 @@ void play_akinator(FILE* fp, Node_t* root)
 
         printf(YELLOW("Eblan takoy option netu.\nZanovo.\n"));
         clean_buffer();
-        play_akinator(fp, root);
+        play_akinator_console(fp, root);
     }
 }
 
 enum endings play_game(Node_t* root)
 {   
     if (root->left && root->right) {
-        printf(CYAN("%s [Yes/No]:\n"), root->question);
+        printf(CYAN("%s? [Yes/No]:\n"), root->question);
     } else {
         printf(YELLOW("It's %s!!!\n"), root->question);
         return ENDINGS_DFLT_END;

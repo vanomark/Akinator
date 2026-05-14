@@ -1,21 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
-#include <assert.h>
-#include <time.h>
 #include "TreeDump.h"
 
-int TreeDump(Node_t *node, const char* DumpFile, const char* GrafFile) 
+int TreeDump(Node_t *node, const char* DumpFile) 
 {   
     assert(node);
     assert(DumpFile);
 
-    time_t mytime = time(NULL);
-    struct tm *now = localtime(&mytime);
-    printf("\nDate: %02d.%02d.%d\n", now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
-    printf("Time: %02d:%02d:%d\n", now->tm_hour, now->tm_min, now->tm_sec);
-
+    const char* GrafFileSVG = "./Data/Graf.svg";
+    const char* GrafFilePNG = "./Data/Graf.png";
+    
+    // time_t mytime = time(NULL);
+    // struct tm *now = localtime(&mytime);
+    // printf("\nDate: %02d.%02d.%d\n", now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
+    // printf("Time: %02d:%02d:%d\n", now->tm_hour, now->tm_min, now->tm_sec);
+    
     FILE* Graf = fopen(DumpFile, "w");
     assert(Graf);
 
@@ -32,10 +29,14 @@ int TreeDump(Node_t *node, const char* DumpFile, const char* GrafFile)
 
     fclose(Graf);
 
-    char* command = (char *) calloc(MAX_STR_, sizeof(char));
-    sprintf(command, "dot %s -Tsvg -o %s", DumpFile, GrafFile);
+    char* command =  (char *) calloc(MAX_STR_, sizeof(char));
+    char* command2 = (char *) calloc(MAX_STR_, sizeof(char));
+    sprintf(command,  "dot %s -Tsvg  -Gmargin=0 -o %s", DumpFile, GrafFileSVG);
+    sprintf(command2, "dot %s -Tpng -Gdpi=300 -Gmargin=0 -o %s", DumpFile, GrafFilePNG);
     system(command);
+    system(command2);
     FREE(command);
+    FREE(command2);
 
     return 0;
 }

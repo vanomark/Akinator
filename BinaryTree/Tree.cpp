@@ -26,7 +26,7 @@ void deleteTree(Node_t* root)
 }
 
 //=================================================================
-// function print given tree into entered file (pre-order)
+// function print given tree into entered file (modified pre-order)
 // 3th parametr is needed for recursion algorithm, set it null
 void fprintfTree(FILE* outfile, Node_t* node, size_t depth) 
 {   
@@ -51,8 +51,8 @@ void fprintfTree(FILE* outfile, Node_t* node, size_t depth)
     }
     printf("\"%s\"\n", node->question);
 
-    if (node->left ) fprintfTree(outfile, node->left,  depth + 1);
     if (node->right) fprintfTree(outfile, node->right, depth + 1);
+    if (node->left ) fprintfTree(outfile, node->left,  depth + 1);
 
     for (size_t i = 0; i < depth; ++i) {
         printf("\t");
@@ -140,7 +140,7 @@ void fscanfTree(FILE* inputfile, Node_t** root)
     FREE(matrix);
 }
 
-// Convert string of pre-order brackets to array with directions from root to leaf
+// Convert string of modified pre-order brackets to array with directions from root to leaf
 int* getPath(char* matrix, size_t* depth)
 {   
     assert(matrix);
@@ -148,7 +148,7 @@ int* getPath(char* matrix, size_t* depth)
     int* path = (int *) calloc(MAX_DEPTH, sizeof(int));
 
     size_t pathlen = 0;
-    bool go_right = false;
+    bool go_right = true;
 
     for (size_t i = 1; matrix[i] != 0; ++i) {
 
@@ -156,16 +156,16 @@ int* getPath(char* matrix, size_t* depth)
 
             if (!go_right) {
                 path[pathlen] = DIRECTION_LEFT;
+                go_right = true;
             } else {
                 path[pathlen] = DIRECTION_RIGHT;
-                go_right = false;
             }
             pathlen++;
         }
 
         if (matrix[i] == '}') {
             pathlen--;
-            go_right = true;
+            go_right = false;
         }
     }
 
